@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clock</title>
+    <style id="css">
+        #wrap{ width: 200px;height: 200px; margin: 100px auto; border-radius: 50%; border: 2px solid #000;position: relative;}
+        #wrap ul{margin: 0;padding:0;width: 200px;height: 200px;position: relative ;list-style: none}
+        #wrap ul li { width: 2px;height: 6px; background: #000;position: absolute;
+            top: 0px;left: 99px;-webkit-transform-origin: center 100px;}
+        #wrap ul li:nth-of-type(5n+1){height: 12px}
+        #ico{ width: 20px;height: 20px;background: #000;border-radius: 50%;position: absolute;
+            left: 90px;top: 90px}
+        #hour{width: 6px;height: 45px;background: #000;position: absolute ;  left: 97px;  top:55px;-webkit-transform-origin: bottom;}
+        #min{width: 4px;height: 65px;background: #999;position: absolute ;  left: 98px;  top:35px;-webkit-transform-origin: bottom;}
+        #sec{width: 2px;height: 80px;background: red;position: absolute ;  left: 99px;  top:20px;-webkit-transform-origin: bottom;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul id="list"></ul>
+
+        <div id="ico"></div>
+        <div id="hour"></div>
+        <div id="min"></div>
+        <div id="sec"></div>
+    </div>
+    <script>
+        var oList = document.getElementById('list');
+        var oCss = document.getElementById('css');
+        var oHour = document.getElementById('hour');
+        var oMin = document.getElementById('min');
+        var oSec = document.getElementById('sec');
+
+        var aLi ='';
+        var sCss ='';
+        for(var i=0;i<60;i++){
+            aLi+='<li></li>';
+            sCss+="#wrap ul li:nth-of-type("+(i+1)+"){-webkit-transform:rotate("+i*6+"deg);}";
+        }
+        oList.innerHTML = aLi;
+        oCss.innerHTML += sCss;
+        ToTime();
+        setInterval(ToTime,1000);
+        function ToTime() {
+            var oDate = new Date();
+            var iSec = oDate.getSeconds();
+            var iMin =oDate.getMinutes()+iSec/60;
+            var iHour = oDate.getHours()+iMin/60;
+
+            oSec.style.webkitTransform = "rotate("+iSec*6+"deg)";
+            oMin.style.webkitTransform = "rotate("+iMin*6+"deg)";
+            oHour.style.webkitTransform ="rotate("+iHour*30+"deg)";
+        }
+    </script>
+
+</body>
+</html>
