@@ -1,0 +1,37 @@
+<!DOCTaYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo2</title>
+    <style>
+        body{background: #000;}
+        #c1{background: white;}
+        span{color: white;}
+    </style>
+    <script>
+        window.onload =function () {
+            var oC = document.getElementById('c1');
+            var oGC = oC.getContext('2d');
+
+            oGC.fillStyle ='red';
+            oGC.fillRect(50,50,100,100);
+            oGC.lineWidth=10;
+            oGC.strokeStyle='blue';
+            oGC.lineJoin = "bevel";//bevel 边角变成斜角
+            //round 变成圆角
+            oGC.strokeRect(50.5,50.5,100,100);
+
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+<canvas id="c1" width="400px" height="400px">
+    <!-要在标签上写宽度和高度->
+    <span>不支持canvas浏览器</span>
+</canvas> <!-默认宽300，高150->
+</body>
+</html>

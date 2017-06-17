@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo3</title>
+    <style>
+        body{background: black;}
+        #c1{background: white;}
+    </style>
+    <script>
+        window.onload =function () {
+            var oC =document.getElementById('c1');
+            var oGC = oC.getContext('2d');
+
+            oGC.translate(100,100);//移动位置
+            oGC.rotate(0*Math.PI/180);//以该图的坐标定点位置
+            oGC.scale(2,2);//等比放大或缩小；
+            oGC.fillRect(-0,-0,100,100);
+        }
+    </script>
+</head>
+<body>
+
+<canvas id="c1" width="400" height="400">
+
+</canvas>
+</body>
+</html>

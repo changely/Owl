@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <style>
+        body{background: black;}
+        #c1{background: white;}
+    </style>
+    <script>
+        window.onload =function () {
+            var oC =document.getElementById('c1');
+            var oGC = oC.getContext('2d');
+
+            oGC.moveTo(200,200);
+            //弧度 = 角度 *Math.PI /180
+            //顺时针默认false  逆时针 true
+            oGC.arc(200,200,150,0,90*Math.PI/180,true);//arc
+
+            oGC.stroke();
+        }
+    </script>
+</head>
+<body>
+
+    <canvas id="c1" width="400" height="400">
+
+    </canvas>
+</body>
+</html>

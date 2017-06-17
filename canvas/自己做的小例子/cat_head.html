@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{ background: black;}
+        #c1{
+            background: white;
+            margin-top: 100px;
+            margin-left: 60px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oC = document.getElementById('c1');
+            var oGC = oC.getContext('2d');
+
+            function DrawTo() {
+                // 猫头鹰的眉毛 及耳朵边
+                oGC.save();
+                oGC.moveTo(200, 15);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = 'round';
+                oGC.bezierCurveTo(225, 120, 375, 120, 400, 15);
+                oGC.stroke();
+                oGC.restore();
+
+                //猫头鹰的脑袋上的部分
+                oGC.save();
+                oGC.moveTo(175, 100);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = 'round';
+                oGC.bezierCurveTo(240, 20, 360, 20, 425, 100);
+                oGC.stroke();
+                oGC.restore();
+                //猫头鹰耳朵
+                oGC.save();
+                oGC.moveTo(200, 15);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = 'round';
+                oGC.quadraticCurveTo(170, 40, 190, 84);
+                oGC.stroke();
+                oGC.restore();
+
+                oGC.save();
+                oGC.moveTo(400, 15);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = "round";
+                oGC.quadraticCurveTo(430, 40, 410, 84);
+                oGC.stroke();
+                oGC.restore();
+                //猫头鹰胖胖的身体
+                oGC.save();
+                oGC.moveTo(175, 100);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = "round";
+                oGC.quadraticCurveTo(95, 210, 145, 350)
+                oGC.stroke();
+                oGC.restore();
+
+                oGC.save();
+                oGC.moveTo(425, 100);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = "round";
+                oGC.quadraticCurveTo(505, 210, 455, 350)
+                oGC.stroke();
+                oGC.restore();
+
+                //猫头鹰身体下部
+                oGC.save();
+                oGC.moveTo(145, 350);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = 'round';
+                oGC.bezierCurveTo(170, 440, 425, 440, 455, 350);
+                oGC.stroke();
+                oGC.restore();
+
+                //绘制翅膀
+                oGC.save();
+                oGC.moveTo(140, 180);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = 'round';
+                oGC.bezierCurveTo(300,210,240,400,210 , 405);
+                oGC.stroke();
+                oGC.restore();
+
+                oGC.save();
+                oGC.moveTo(200,400);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = 'round';
+                oGC.lineTo(200,310)
+                oGC.stroke();
+                oGC.restore();
+
+                oGC.save();
+                oGC.moveTo(170,380);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = 'round';
+                oGC.lineTo(170,270)
+                oGC.stroke();
+                oGC.restore();
+
+                //绘制尾巴
+                oGC.beginPath();
+                oGC.moveTo(210, 405);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = 'round';
+                oGC.bezierCurveTo(250, 550,350,550, 390 , 405);
+                oGC.stroke();
+                oGC.closePath();
+
+                oGC.beginPath();
+                oGC.moveTo(270,500);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = 'round';
+                oGC.lineTo(270,450)
+                oGC.stroke();
+                oGC.closePath();
+
+                oGC.beginPath();
+                oGC.moveTo(330,500);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = 'round';
+                oGC.lineTo(330,450)
+                oGC.stroke();
+                oGC.closePath();
+
+
+
+                //猫头鹰眼睛
+                function d_Eye(i,j,right) {
+                    oGC.beginPath();
+                    oGC.lineWidth = 7;
+                    oGC.strokeStyle = "#555";
+                    oGC.lineCap = "round";
+                    oGC.arc(i, j, 35, 0, 360 * Math.PI / 180, false);
+                    oGC.stroke();
+                    oGC.closePath();
+
+                    oGC.beginPath();
+                    oGC.fillStyle = "white";
+                    oGC.arc(i, j, 31, 0, 360 * Math.PI / 180, false);
+                    oGC.fill();
+                    oGC.closePath();
+
+                    oGC.beginPath();
+                    var dist = (right?1:-1) * 17;
+                    oGC.fillStyle = "#555";
+                    oGC.arc(i + dist, j, 15, 0, 360 * Math.PI / 180, false);
+                    oGC.fill();
+                    oGC.closePath();
+                }
+
+                d_Eye(230,145,true);
+
+                d_Eye(370,145,true);
+//                oGC.beginPath();
+//                oGC.moveTo(230, 145);
+//                oGC.lineWidth = 7;
+//                oGC.strokeStyle = "#555";
+//                oGC.lineCap = "round";
+//                oGC.arc(230, 145, 35, 0, 360 * Math.PI / 180, false);
+//                oGC.stroke();
+//                oGC.closePath();
+//
+//                oGC.beginPath();
+//                oGC.moveTo(230, 145);
+//                oGC.fillStyle = "white";
+//                oGC.arc(230, 145, 31, 0, 360 * Math.PI / 180, false);
+//                oGC.fill();
+//                oGC.closePath();
+//
+//                oGC.beginPath();
+//                oGC.moveTo(370, 145);
+//                oGC.lineWidth = 7;
+//                oGC.strokeStyle = "#555";
+//                oGC.lineCap = "round";
+//                oGC.arc(370, 145, 35, 0, 360 * Math.PI / 180, false);
+//                oGC.stroke();
+//                oGC.closePath();
+//
+//                oGC.beginPath();
+//                oGC.moveTo(370, 145);
+//                oGC.fillStyle = "white";
+//                oGC.arc(370, 145, 31, 0, 360 * Math.PI / 180, false);
+//                oGC.fill();
+//                oGC.closePath
+
+                //眼珠
+//                oGC.beginPath();
+//                oGC.moveTo(247, 145);
+//                oGC.fillStyle = "#555";
+//                oGC.arc(247, 145, 15, 0, 360 * Math.PI / 180, false);
+//                oGC.fill();
+//                oGC.closePath();
+//
+//
+//                oGC.beginPath();
+//                oGC.moveTo(387, 145);
+//                oGC.fillStyle = "#555";
+//                oGC.arc(387, 145, 15, 0, 360 * Math.PI / 180, false);
+//                oGC.fill();
+//                oGC.closePath();
+
+                //鼻子第一部分弧线 第二部分两条直线
+                oGC.beginPath();
+                oGC.moveTo(275, 120);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = 'round';
+                oGC.quadraticCurveTo(300, 95, 325, 120);
+                oGC.stroke();
+                oGC.closePath();
+
+                oGC.beginPath();
+                oGC.moveTo(275, 120);
+                oGC.lineWidth = 7;
+                oGC.strokeStyle = "#555";
+                oGC.lineCap = 'round';
+                oGC.lineTo(300, 200);
+                oGC.lineTo(325, 120);
+                oGC.stroke();
+                oGC.closePath();
+
+                //绘制腿
+                function dTri(i,j) {
+                    oGC.beginPath();
+                    oGC.moveTo(i, j);
+                    oGC.lineWidth = 6;
+                    oGC.strokeStyle = "#555";
+                    oGC.lineCap = 'round';
+                    oGC.lineTo( i+20, j);
+                    oGC.lineTo( i+10, j-10);
+                    oGC.closePath();
+                    oGC.stroke();
+                }
+                dTri(260,380);
+                dTri(280,380);
+                dTri(300,380);
+
+                dTri(340,380);
+                dTri(360,380);
+                dTri(380,380)
+
+
+                var bOff = true;
+                setInterval(function () {
+                    if (bOff){
+                        oGC.clearRect(190,105,80,80);
+                        oGC.clearRect(330,105,80,80);
+                        d_Eye(230,145,bOff);
+                        d_Eye(370,145,bOff);
+                    }else {
+                        oGC.clearRect(190,105,80,80);
+                        d_Eye(230,145,bOff);
+                        oGC.clearRect(330,105,80,80);
+                        d_Eye(370,145,bOff);
+                    }
+                    bOff =!bOff;
+                },1000)
+
+//                oGC.clearRect(190,105,80,80);
+//                d_Eye(230,145,false);
+//                oGC.clearRect(330,105,80,80);
+//                d_Eye(370,145,false);
+
+            }
+            DrawTo();
+
+        }
+    </script>
+</head>
+<body>
+    <canvas id="c1" width="600" height="600"></canvas>
+</body>
+</html>

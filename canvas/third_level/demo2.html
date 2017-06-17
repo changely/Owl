@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo2_平铺背景的用法</title>
+    <style>
+        body{background: black}
+        #c1{background: white}
+    </style>
+    <script>
+        window.onload =function () {
+            var oC = document.getElementById('c1');
+            var oGC = oC.getContext('2d');
+
+            var yImg = new Image();
+
+            yImg.onload = function () {
+                draw(this);
+            }
+
+            yImg.src ='../img/long_cat.jpeg';
+
+            function draw(obj) {
+                var bg = oGC.createPattern(obj, 'repeat');//createPattern 背景平铺
+
+                oGC.fillStyle= bg ;
+
+                oGC.fillRect(0,0,300,300);
+            }
+
+        }
+    </script>
+</head>
+<body>
+<canvas id="c1" width="1000" height="500"> </canvas>
+</body>
+</html>

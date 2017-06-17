@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo旋转的小方块</title>
+    <style>
+        body{background: black;}
+        #c1{background: white;}
+    </style>
+    <script>
+        window.onload =function () {
+            var oC =document.getElementById('c1');
+            var oGC = oC.getContext('2d');
+            var num = 0;
+
+            setInterval(function () {
+                num++;
+                oGC.save();
+                oGC.clearRect(0,0,400,400);
+                oGC.translate(100,100);//translate必须得写在这
+                oGC.rotate(num * Math.PI/180);
+                oGC.fillRect(0,0,50,50);
+                oGC.restore();
+
+            },30);
+        }
+    </script>
+</head>
+<body>
+
+<canvas id="c1" width="400" height="400">
+
+</canvas>
+</body>
+</html>
